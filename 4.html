@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #draggable {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      color: #0b0b0b;
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <div id="draggable" draggable="true">Перетащи меня</div>
+
+  <script>
+    const draggable = document.getElementById('draggable');
+
+    draggable.addEventListener('dragstart', (event) => {
+      event.dataTransfer.setData('text', event.target.id);
+      event.target.style.opacity = 0.5;
+    });
+
+    draggable.addEventListener('dragend', (event) => {
+      event.target.style.opacity = 1;
+    });
+
+    document.addEventListener('dragover', (event) => {
+      event.preventDefault();
+    });
+
+    document.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const data = event.dataTransfer.getData('text');
+      const draggedElement = document.getElementById(data);
+      event.target.appendChild(draggedElement);
+    });
+  </script>
+</body>
+</html>

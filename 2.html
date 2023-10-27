@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #pointerDemo {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="pointerDemo">Наведите указатель мыши</div>
+
+  <script>
+    const pointerDemo = document.getElementById('pointerDemo');
+
+    pointerDemo.addEventListener('pointerdown', function(event) {
+      pointerDemo.textContent = 'Нажатие указателя';
+      pointerDemo.style.backgroundColor = '#e74c3c';
+    });
+
+    pointerDemo.addEventListener('pointerup', function(event) {
+      pointerDemo.textContent = 'Отпускание указателя';
+      pointerDemo.style.backgroundColor = '#3498db';
+    });
+
+    pointerDemo.addEventListener('pointerenter', function(event) {
+      pointerDemo.textContent = 'Указатель вошел в элемент';
+      pointerDemo.style.backgroundColor = '#27ae60';
+    });
+
+    pointerDemo.addEventListener('pointerleave', function(event) {
+      pointerDemo.textContent = 'Указатель покинул элемент';
+      pointerDemo.style.backgroundColor = '#3498db';
+    });
+
+    pointerDemo.addEventListener('dblclick', function(event) {
+      pointerDemo.textContent = 'Двойной клик';
+      pointerDemo.style.backgroundColor = '#f1c40f';
+    });
+  </script>
+</body>
+</html>
+
+
+
